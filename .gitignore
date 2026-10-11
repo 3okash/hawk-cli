@@ -1,9 +1,5 @@
 node_modules/
 dist/
 .hawk
-landing/
-.claude/
-.superpowers/
-docs/superpowers/
 install.txt
 .DS_Store
