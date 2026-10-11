@@ -1,0 +1,10 @@
+src/
+tests/
+docs/
+landing/
+.claude/
+.superpowers/
+*.test.ts
+tsconfig.json
+install.txt
+hawk.svg
