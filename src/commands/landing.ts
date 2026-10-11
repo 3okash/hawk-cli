@@ -128,7 +128,7 @@ const BASE_CSS = `
   --white: #fff;
   --green: #16a34a;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
-  --sans: 'Inter', -apple-system, sans-serif;
+  --sans: 'Space Mono', ui-monospace, monospace;
 }
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.6; }
@@ -180,7 +180,7 @@ const INDEX_HTML = `<!DOCTYPE html>
 ${SEO_INDEX}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 ${BASE_CSS}
 
@@ -198,8 +198,8 @@ ${BASE_CSS}
 @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } .hero-term { display: none; } }
 
 h1 {
-  font-size: clamp(58px, 8vw, 96px);
-  font-weight: 900; letter-spacing: -4px; line-height: 0.97;
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: 700; letter-spacing: -2px; line-height: 1.0;
   color: var(--ink); margin-bottom: 28px;
 }
 h1 em { font-style: italic; font-weight: 300; color: #aaa; }
@@ -276,8 +276,8 @@ h1 em { font-style: italic; font-weight: 300; color: #aaa; }
 .features-inner { max-width: 1200px; margin: 0 auto; }
 .features-inner .section-label { color: #444; }
 .features-inner h2 {
-  font-size: clamp(40px, 5.5vw, 72px);
-  font-weight: 900; letter-spacing: -3px; line-height: 1.0;
+  font-size: clamp(34px, 4.5vw, 60px);
+  font-weight: 700; letter-spacing: -1.5px; line-height: 1.05;
   color: #fff; margin-bottom: 20px;
 }
 .features-inner h2 em { font-style: italic; font-weight: 300; color: #444; }
@@ -303,7 +303,7 @@ h1 em { font-style: italic; font-weight: 300; color: #aaa; }
 
 /* ── Before / After ── */
 .before-after { max-width: 1200px; margin: 0 auto; padding: 120px 48px; }
-.before-after h2 { font-size: clamp(40px, 5.5vw, 72px); font-weight: 900; letter-spacing: -3px; line-height: 1.0; margin-bottom: 16px; }
+.before-after h2 { font-size: clamp(34px, 4.5vw, 60px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 16px; }
 .before-after > p { font-size: 19px; color: var(--muted); margin-bottom: 60px; }
 .ba-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 @media (max-width: 720px) { .ba-cols { grid-template-columns: 1fr; } }
@@ -332,7 +332,7 @@ h1 em { font-style: italic; font-weight: 300; color: #aaa; }
 /* ── Commands ── */
 .commands-section { background: var(--surface); border-top: 1.5px solid var(--border); border-bottom: 1.5px solid var(--border); padding: 120px 48px; }
 .commands-inner { max-width: 1200px; margin: 0 auto; }
-.commands-inner h2 { font-size: clamp(40px, 5.5vw, 72px); font-weight: 900; letter-spacing: -3px; line-height: 1.0; margin-bottom: 16px; }
+.commands-inner h2 { font-size: clamp(34px, 4.5vw, 60px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 16px; }
 .commands-inner > p { font-size: 19px; color: var(--muted); margin-bottom: 64px; }
 .commands-inner > p code { font-family: var(--mono); font-size: 15px; background: #e8e8e8; padding: 3px 10px; border-radius: 6px; color: var(--ink-soft); }
 .cmd-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 52px 80px; }
@@ -346,7 +346,7 @@ h1 em { font-style: italic; font-weight: 300; color: #aaa; }
 
 /* ── CTA ── */
 .cta { max-width: 1200px; margin: 0 auto; padding: 120px 48px; text-align: center; }
-.cta h2 { font-size: clamp(44px, 6vw, 80px); font-weight: 900; letter-spacing: -4px; margin-bottom: 20px; line-height: 0.96; }
+.cta h2 { font-size: clamp(36px, 5vw, 68px); font-weight: 700; letter-spacing: -2px; margin-bottom: 20px; line-height: 1.02; }
 .cta h2 em { font-style: italic; font-weight: 300; color: #aaa; }
 .cta p { font-size: 19px; color: var(--muted); margin-bottom: 48px; }
 .cta .blog-link { display: inline-block; margin-top: 28px; font-size: 15px; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); transition: color .15s, border-color .15s; }
@@ -545,7 +545,7 @@ const BLOG_HTML = `<!DOCTYPE html>
 ${SEO_BLOG}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 ${BASE_CSS}
 
@@ -563,8 +563,8 @@ ${BASE_CSS}
 }
 .blog-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #16a34a; }
 .blog-hero h1 {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 900; letter-spacing: -3px; line-height: 1.04;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700; letter-spacing: -1.5px; line-height: 1.1;
   color: #fff; margin-bottom: 24px;
 }
 .blog-hero h1 em { font-style: italic; font-weight: 300; color: #444; }
@@ -585,8 +585,8 @@ ${BASE_CSS}
 .blog-body p { font-size: 18px; line-height: 1.85; color: #444; margin-bottom: 28px; }
 .blog-body p:last-child { margin-bottom: 0; }
 .blog-body h2 {
-  font-size: 28px; font-weight: 800; letter-spacing: -1px;
-  color: #2a2a2e; margin: 60px 0 20px; line-height: 1.2;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
+  color: #2a2a2e; margin: 60px 0 20px; line-height: 1.25;
 }
 .blog-body h3 { font-size: 20px; font-weight: 700; color: #2a2a2e; margin: 40px 0 14px; }
 .blog-body strong { color: #2e2e32; font-weight: 700; }
