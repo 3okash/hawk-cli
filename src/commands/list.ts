@@ -11,7 +11,7 @@ export function listCommand(): void {
   for (const p of projects) {
     console.log(
       chalk.bold(p.name.padEnd(22)) +
-      chalk.gray(p.profile.padEnd(14)) +
+      chalk.gray((p.profile ?? '').padEnd(14)) +
       chalk.cyan(p.path)
     )
     if (p.github) console.log('  ' + chalk.gray(`github:  ${p.github}`))

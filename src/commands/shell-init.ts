@@ -7,7 +7,12 @@ const SNIPPET = `
 # hawk shell integration
 _hawk_bin() {
   local bin
-  bin=$(command -v hawk 2>/dev/null)
+  # Use whence -p (zsh) or type -P (bash) to search PATH only, not shell functions
+  if [ -n "$ZSH_VERSION" ]; then
+    bin=$(whence -p hawk 2>/dev/null)
+  else
+    bin=$(type -P hawk 2>/dev/null)
+  fi
   [ -n "$bin" ] && echo "$bin" && return
   if [ -n "$NVM_DIR" ]; then
     for bin in "$NVM_DIR/versions/node"/*/bin/hawk; do
