@@ -3,6 +3,14 @@
   "version": "0.1.6",
   "description": "A command-line project manager",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3okash/hawk-cli.git"
+  },
+  "homepage": "https://github.com/3okash/hawk-cli#readme",
+  "bugs": {
+    "url": "https://github.com/3okash/hawk-cli/issues"
+  },
   "bin": {
     "hawk": "./dist/index.js"
   },
