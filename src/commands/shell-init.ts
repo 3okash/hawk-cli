@@ -5,13 +5,30 @@ import chalk from 'chalk'
 
 const SNIPPET = `
 # hawk shell integration
+_hawk_bin() {
+  local bin
+  bin=$(command -v hawk 2>/dev/null)
+  [ -n "$bin" ] && echo "$bin" && return
+  if [ -n "$NVM_DIR" ]; then
+    for bin in "$NVM_DIR/versions/node"/*/bin/hawk; do
+      [ -x "$bin" ] && echo "$bin"
+    done | sort -V | tail -1
+  fi
+}
+
 function hawk() {
+  local _bin
+  _bin=$(_hawk_bin)
+  if [ -z "$_bin" ]; then
+    echo "hawk: command not found. Run: npm install -g hawk-cli" >&2
+    return 127
+  fi
   if [ "$1" = "cd" ]; then
     local dir
-    dir=$(command hawk _resolve-path "$2" 2>/dev/null)
+    dir=$("$_bin" _resolve-path "$2" 2>/dev/null)
     [ -n "$dir" ] && cd "$dir" || echo "hawk: project '$2' not found"
   else
-    command hawk "$@"
+    "$_bin" "$@"
   fi
 }
 
@@ -19,7 +36,7 @@ function hawk() {
 if [ -n "$ZSH_VERSION" ]; then
   _hawk_projects() {
     local projects
-    projects=($(command hawk _completions 2>/dev/null))
+    projects=($(hawk _completions 2>/dev/null))
     _describe 'projects' projects
   }
   compdef '_arguments "1:command:(init scan add list cd open edit status hosting dashboard landing profile sync shell-init)" "2:project:_hawk_projects"' hawk
@@ -32,7 +49,7 @@ if [ -n "$BASH_VERSION" ]; then
     local prev="\${COMP_WORDS[COMP_CWORD-1]}"
     local project_cmds="cd open edit status hosting landing"
     if echo "$project_cmds" | grep -qw "$prev"; then
-      COMPREPLY=( $(compgen -W "$(command hawk _completions 2>/dev/null)" -- "$cur") )
+      COMPREPLY=( $(compgen -W "$(hawk _completions 2>/dev/null)" -- "$cur") )
     fi
   }
   complete -F _hawk_complete hawk
