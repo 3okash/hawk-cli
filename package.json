@@ -1,6 +1,6 @@
 {
   "name": "hawk-cli",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A command-line project manager",
   "type": "module",
   "repository": {
